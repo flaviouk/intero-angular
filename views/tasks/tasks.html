@@ -9,7 +9,12 @@
         </div>
         <div class="col-xs-4 col-md-8 col-lg-9">
 
-        	<tasks></tasks>
+            <ul class="with-header">
+                <h1 class="center"> Hoje </h1>
+                <div class="list-group">
+                	<tasks ng-repeat="task in tasks"></tasks>
+                </div>
+            </ul>
 
         </div>
     </div>
