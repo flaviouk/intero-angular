@@ -1,0 +1,29 @@
+angular.module( 'interoApp', [ 'ui.router' ] )
+
+.config( [ '$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
+
+	$urlRouterProvider.otherwise( '/' );
+
+	$stateProvider
+		.state( 'home', {
+			url: '/',
+			templateUrl: './views/home/home.html',
+			controller: 'homeCtrl'
+		} )
+		.state( 'dashboard', {
+			url: '/dashboard',
+			templateUrl: './views/dashboard/dashboard.html',
+			controller: 'dashboardCtrl'
+		} )
+
+
+} ] )
+
+.constant( 'firebaseRef', {
+	config: {
+		apiKey: "AIzaSyB7zDsdPV-mnp7lOGLnTH1VAG9OaEN0C6U",
+		authDomain: "project-7490252363998286033.firebaseapp.com",
+		databaseURL: "https://project-7490252363998286033.firebaseio.com",
+		storageBucket: "project-7490252363998286033.appspot.com",
+	}
+} )
