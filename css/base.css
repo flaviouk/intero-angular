@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+}
+
 /*VIEWS*/
 
 
@@ -8,22 +12,18 @@
 }
 
 .facebook-btn {
-    background-color: #3b5998;
+    /*background-color: #3b5998;*/
     font-size: 1.1em;
     margin-right: 25px;
 }
 
 .facebook-btn:hover {
     color: white;
-    background-color: #3b5998;
+    /*background-color: #3b5998;*/
 }
 
-#home{
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 100vh;
-	padding: 40px 5vh 40px;
+.facebook-btn i{
+    height: 15px;
 }
 
 
@@ -32,22 +32,28 @@
 
 /*Navbar*/
 
-nav {
+navbar {
     width: 100%;
     position: fixed;
     top: 0;
 }
 
-nav div ul li a {
-    font-size: 1.2e;
+navbar div ul li a {
+    font-size: 1.1em;
 }
 
 .navLinks:hover {
     color: white;
     text-decoration: none;
-    color: red;
 }
 
 .navLinks{
 	margin-left: 25px;
+}
+
+
+/*Tasks*/
+
+#tasks {
+    margin-top: 70px;
 }

@@ -15,6 +15,10 @@ angular.module( 'interoApp', [ 'ui.router' ] )
 			templateUrl: './views/dashboard/dashboard.html',
 			controller: 'dashboardCtrl'
 		} )
+		.state( 'tasks', {
+			url: '/tasks',
+			templateUrl: './views/tasks/tasks.html'
+		} )
 
 
 } ] )

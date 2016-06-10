@@ -1,10 +1,12 @@
-<nav class="orange darken-4">
+<nav class="blue darken-4">
     <div class="nav-wrapper container-fluid">
-      <a ui-sref="home" class="brand-logo navLinks">intero</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="navLinks">Dashboard</a></li>
-        <li><a class="navLinks">Routines</a></li>
-        <li><a class="navLinks">Tasks</a></li>
-      </ul>
+        <a ui-sref="dashboard" class="brand-logo navLinks">intero</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        	<li><a class="navLinks">Progresso</a></li>
+            <li><a class="navLinks">Rotinas</a></li>
+            <li><a class="navLinks" ui-sref="tasks">Tarefas</a></li>
+        	<li><a class="navLinks">Definições</a></li>
+            <li><a ng-click="logout()" class="navLinks">Sair</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
