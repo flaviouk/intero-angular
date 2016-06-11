@@ -4,7 +4,7 @@ angular.module( 'interoApp', [ 'ui.router' ] )
 
 	// Init Firebase
 	( function() {
-			firebase.initializeApp( {
+		firebase.initializeApp( {
 			apiKey: "AIzaSyB7zDsdPV-mnp7lOGLnTH1VAG9OaEN0C6U",
 			authDomain: "project-7490252363998286033.firebaseapp.com",
 			databaseURL: "https://project-7490252363998286033.firebaseio.com",
@@ -31,4 +31,7 @@ angular.module( 'interoApp', [ 'ui.router' ] )
 			controller: 'tasksCtrl'
 		} )
 
-} ] )
+} ] );
+
+
+

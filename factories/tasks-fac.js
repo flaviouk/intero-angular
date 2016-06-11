@@ -6,11 +6,9 @@ angular.module( 'interoApp' )
 	var userId = firebase.auth().currentUser.uid;
 
 	function getTasks() {
-		return database.ref( userId + '/tasks' ).once( 'value')
-			// .then(function (snapshot) {
-			// 	return snapshot.val();
-			// });
+		return database.ref( userId + '/tasks' ).once( 'value');
 	}
+
 
 	return {
 		getTasks: getTasks

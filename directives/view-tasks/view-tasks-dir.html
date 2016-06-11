@@ -1,0 +1,21 @@
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li ng-repeat="task in tasks">
+        <div class="collapsible-header">
+            <div class="left">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>{{task.name}}
+            </div>
+            <div class="right">
+                <i class="fa fa-hourglass-end" aria-hidden="true"></i><strong>Due:</strong> {{task.due}}
+            </div>
+        </div>
+        <div class="collapsible-body">
+            <p><strong>Description: </strong>{{task.description}}</p>
+            <p>
+                <strong>Created:</strong> {{task.created}}
+                <br>
+                <strong>Due:</strong> {{task.due}}
+            </p>
+
+        </div>
+    </li>
+</ul>
