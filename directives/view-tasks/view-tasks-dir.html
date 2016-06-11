@@ -9,14 +9,15 @@
             </div>
         </div>
         <div class="collapsible-body">
-            <p><strong>Description: </strong>{{task.description}}</p>
+            <p><strong>Description: </strong>{{task.description}}
+                {{task}}</p>
             <p>
                 <strong>Created:</strong> {{task.created}}
                 <br>
                 <strong>Due:</strong> {{task.due}}
             </p>
-            <<div class="right">
-                <i class="fa fa-check" aria-hidden="true"></i>
+            <div class="right">
+                <i class="fa fa-check done-check" aria-hidden="true" ng-click="done(task)"></i>
             </div>
 
         </div>

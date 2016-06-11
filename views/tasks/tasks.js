@@ -1,30 +1,20 @@
 angular.module( 'interoApp' )
 	.controller( 'tasksCtrl', function( $scope, tasksFactory, $timeout ) {
-
-		$scope.title = 'Tasks'
-
-		var allTasks;
+		
+		$scope.tasks;
+		$scope.title = 'Tasks';
 		tasksFactory.getTasks().then( function( result ) {
-			allTasks = result.val();
+			return result.val();
+		} ).then( function( result ) {
+			$scope.tasks = result;
+			// tasksFactory.bindTasks();
+			console.log( $scope.tasks );
 		} );
 
-		checkTasks();
-
-		function checkTasks( counter ) {
-			if ( !allTasks ) {
-				if ( !counter ) { counter = 500 }
-				$timeout( function() {
-					checkTasks( counter * 2 );
-				}, counter )
-			} else {
-				$scope.tasks = allTasks;
-			}
-		}
-
-		$scope.view = function(str, bolean){
+		$scope.view = function( str, bolean ) {
 			$scope.title = str;
 			$scope.showTasks = bolean;
-			console.log($scope.showTasks);
+			console.log( $scope.showTasks );
 		}
 
 		$scope.showTasks = true;
