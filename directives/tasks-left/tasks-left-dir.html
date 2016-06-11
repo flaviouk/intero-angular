@@ -1,0 +1,17 @@
+<div class="list-group">
+    <button type="button" ng-click="view('New Task', false)" class="list-group-item">
+        <i class="fa fa-plus" aria-hidden="true"></i> New
+    </button>
+    <button type="button" ng-click="view('Today', true)" class="list-group-item">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Today
+    </button>
+    <button type="button" ng-click="view('Week', true)" class="list-group-item">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Week
+    </button>
+    <button type="button" ng-click="view('Done', true)" class="list-group-item">
+        <i class="fa fa-check-square" ng-model="filter.completed" aria-hidden="true"></i> Done
+    </button>
+    <button type="button" ng-click="view('All Tasks', true)" class="list-group-item">
+        <i class="fa fa-check-square" aria-hidden="true"></i> All
+    </button>
+</div>

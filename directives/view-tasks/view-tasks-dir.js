@@ -4,7 +4,8 @@ angular.module( 'interoApp' )
 	return {
 		templateUrl: './directives/view-tasks/view-tasks-dir.html',
 		scope: {
-			tasks: '='
+			tasks: '=',
+			filter: '='
 		},
 		link: function (scope, elem, attr) {
 			scope.done = function (task, bolean){

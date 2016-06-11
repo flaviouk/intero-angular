@@ -1,5 +1,5 @@
 <ul class="collapsible popout" data-collapsible="accordion">
-    <li ng-repeat="task in tasks" ng-if="!task.completed">
+    <li ng-repeat="task in tasks | filter: filter" ng-if="!task.completed">
         <div class="collapsible-header">
             <div class="left" >
                 <i class="fa fa-check-square-o" aria-hidden="true"></i>{{task.name}}
