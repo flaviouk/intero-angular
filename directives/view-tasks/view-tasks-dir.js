@@ -14,7 +14,7 @@ angular.module( 'interoApp' )
 				$( '.modal-trigger' ).leanModal();
 			} );
 			function done(task){
-				tasksFactory.done(task).then(function (result) {
+				tasksFactory.taskDone(task).then(function (result) {
 					$timeout( function() {
 						Materialize.toast( 'Nice Job!', 3000 );
 					}, 500 );

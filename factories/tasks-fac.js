@@ -1,38 +1,37 @@
 angular.module( 'interoApp' )
 
-.factory( 'tasksFactory', function( $timeout, $q ) {
+.factory( 'tasksFactory', function( $timeout, authFactory, $firebaseArray ) {
 
-	var database = firebase.database();
-	var userId = firebase.auth().currentUser.uid;
 
-	function getTasks() {
-		return database.ref( userId + '/tasks' ).once( 'value', function( snapshot ) {
-			return snapshot.val();
-		} );
-	}
+	Tasks = authFactory.currentUserTasks;
 
 	function addTask( task ) {
-		database.ref( userId + '/tasks' ).push( task ).then( function( result ) {
+		if ( Tasks.push( task ) ) {
 			$timeout( function() {
 				Materialize.toast( 'Added!', 3000 );
 			}, 500 );
-		} ).catch( function( err ) {
+		} else {
 			$timeout( function() {
 				Materialize.toast( 'Something went wrong, try again later!', 3000 );
 			}, 500 );
-		} );
+		}
 	}
 
-	// ( function init() {
-	// 	return database.ref( userId + '/tasks' ).on( 'child_changed', function( snapshot ) {
-	// 		// console.log(snapshot.val());
-	// 		return snapshot.val();
-	// 	} );
-	// } )()
+	function taskDone( task, bolean ) {
+		for ( var i = 0; i < Tasks.length; i++ ) {
+			if ( Tasks.created === task.created ) {
+				var thisTask = authFactory.currentUserTasks + '/' + task.$id;
+				console.log(task);
+				console.log(task.$id);
+				// Tasks.update( {completed: bolean });
+			}
+		}
+	}
+
+
 
 	return {
-		getTasks: getTasks,
 		addTask: addTask,
-		// bindTasks: bindTasks
+		taskDone: taskDone
 	}
 } );

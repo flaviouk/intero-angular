@@ -1,16 +1,15 @@
-angular.module( 'interoApp', [ 'ui.router' ] )
+angular.module( 'interoApp', [ 'ui.router', 'firebase' ] )
+
+
+.constant('firebaseRef', {
+	base: new Firebase('https://intero.firebaseio.com'),
+	tasks: new Firebase('https://intero.firebaseio.com/tasks')
+
+})
+
 
 .config( [ '$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
 
-	// Init Firebase
-	( function() {
-		firebase.initializeApp( {
-			apiKey: "AIzaSyB7zDsdPV-mnp7lOGLnTH1VAG9OaEN0C6U",
-			authDomain: "project-7490252363998286033.firebaseapp.com",
-			databaseURL: "https://project-7490252363998286033.firebaseio.com",
-			storageBucket: "project-7490252363998286033.appspot.com",
-		} );
-	} )()
 
 	$urlRouterProvider.otherwise( '/' );
 
@@ -32,6 +31,9 @@ angular.module( 'interoApp', [ 'ui.router' ] )
 		} )
 
 } ] );
+
+
+
 
 
 
