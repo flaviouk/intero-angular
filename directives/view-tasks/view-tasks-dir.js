@@ -1,25 +1,24 @@
 angular.module( 'interoApp' )
 
-.directive( 'viewTasks', function() {
+.directive( 'viewTasks', function(tasksFactory) {
 	return {
 		templateUrl: './directives/view-tasks/view-tasks-dir.html',
 		scope: {
 			tasks: '='
 		},
-		controller: function( tasksFactory ) {
+		link: function (scope, elem, attr) {
+			scope.done = function (task, bolean){
+				tasksFactory.taskDone(task, bolean);
+			}
+		},
+		controller: function() {
 			$( document ).ready( function() {
 				$( '.collapsible' ).collapsible( {
 					accordion: false
 				} );
 				$( '.modal-trigger' ).leanModal();
 			} );
-			function done(task){
-				tasksFactory.taskDone(task).then(function (result) {
-					$timeout( function() {
-						Materialize.toast( 'Nice Job!', 3000 );
-					}, 500 );
-				})
-			}
+			
 		}
 	};
 } );

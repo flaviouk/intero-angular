@@ -1,12 +1,14 @@
 angular.module( 'interoApp' )
 
-.factory( 'tasksFactory', function( $timeout, authFactory, $firebaseArray ) {
+.factory( 'tasksFactory', function( $timeout, authFactory, firebaseRef, $firebaseArray ) {
 
 
-	Tasks = authFactory.currentUserTasks;
+	var TasksUrl = authFactory.currentUserTasks;
+	var tasks = $firebaseArray( authFactory.currentUserTasks );
+
 
 	function addTask( task ) {
-		if ( Tasks.push( task ) ) {
+		if ( TasksUrl.push( task ) ) {
 			$timeout( function() {
 				Materialize.toast( 'Added!', 3000 );
 			}, 500 );
@@ -18,12 +20,11 @@ angular.module( 'interoApp' )
 	}
 
 	function taskDone( task, bolean ) {
-		for ( var i = 0; i < Tasks.length; i++ ) {
-			if ( Tasks.created === task.created ) {
-				var thisTask = authFactory.currentUserTasks + '/' + task.$id;
-				console.log(task);
-				console.log(task.$id);
-				// Tasks.update( {completed: bolean });
+		for ( var i = 0; i < tasks.length; i++ ) {
+			if ( tasks[i].$id === task.$id ) {
+				var thisTask = new Firebase(authFactory.currentUserTasks + '/' + task.$id);
+				console.log(thisTask);
+				thisTask.update( {completed: bolean });
 			}
 		}
 	}
