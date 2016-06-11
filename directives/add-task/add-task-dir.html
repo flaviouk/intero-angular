@@ -1,0 +1,32 @@
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s10">
+                <input ng-model="add.name" id="name" type="text" class="validate">
+                <label for="name">Name</label>
+            </div>
+            <div class="input-field col s10">
+                <input ng-model="add.description" id="description" type="text" class="validate">
+                <label for="description">Description</label>
+            </div>
+            <div class="input-field col s5">
+                <input id="date" type="date" class="datepicker">
+                <label for="date">Due date</label>
+            </div>
+            <div class="input-field col s5">
+                <input id="hour" type="time" class="validate">
+            </div>
+            <div class="input-field col s5">
+                <p class="range-field">
+                    <input ng-model="add.priority" id="priority" type="range" min="1" max="10" />
+                    <label for="priority">Priority</label>
+                </p>
+            </div>
+            <div class="input-field center col s5">
+                <a ng-click="addTask()" class="waves-effect waves-light btn blue darken-2">Save!</a>
+            </div>
+
+
+        </div>
+    </form>
+</div>

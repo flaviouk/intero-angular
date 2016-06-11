@@ -17,16 +17,17 @@ angular.module( 'interoApp' )
 					checkTasks( counter * 2 );
 				}, counter )
 			} else {
-				$scope.tasks = allTasks.splice( 1 );
+				$scope.tasks = allTasks;
 			}
 		}
 
-		$scope.setToday = function(){
-			$scope.title = 'TODAY';
+		$scope.view = function(str, bolean){
+			$scope.title = str;
+			$scope.showTasks = bolean;
+			console.log($scope.showTasks);
 		}
-		$scope.setWeek = function(){
-			$scope.title = 'This WEEK';
-		}
+
+		$scope.showTasks = true;
 
 
 	} );

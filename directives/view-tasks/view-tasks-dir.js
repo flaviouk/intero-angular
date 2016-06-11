@@ -6,13 +6,20 @@ angular.module( 'interoApp' )
 		scope: {
 			tasks: '='
 		},
-		controller: function() {
+		controller: function( tasksFactory ) {
 			$( document ).ready( function() {
 				$( '.collapsible' ).collapsible( {
 					accordion: false
 				} );
 				$( '.modal-trigger' ).leanModal();
 			} );
+			function done(task){
+				tasksFactory.done(task).then(function (result) {
+					$timeout( function() {
+						Materialize.toast( 'Nice Job!', 3000 );
+					}, 500 );
+				})
+			}
 		}
 	};
 } );

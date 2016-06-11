@@ -4,7 +4,8 @@ angular.module( 'interoApp' )
 	return {
 		templateUrl: './directives/tasks-right/tasks-right-dir.html',
 		scope: {
-			tasks: '='
+			tasks: '=',
+			showTasks: '='
 		},
 		controller: function() {
 			$( document ).ready( function() {
