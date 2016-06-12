@@ -12,6 +12,10 @@ angular.module( 'interoApp' )
 
 		$scope.filters = {};
 
+		$scope.setFilter = function (obj) {
+			$scope.filters = obj;
+		}
+
 		$scope.showTasks = true;
 
 	} );
