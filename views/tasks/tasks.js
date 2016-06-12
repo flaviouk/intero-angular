@@ -1,5 +1,5 @@
 angular.module( 'interoApp' )
-	.controller( 'tasksCtrl', function( $scope, authFactory, $firebaseArray, $timeout ) {
+	.controller( 'tasksCtrl', function( $scope, authFactory, $firebaseArray ) {
 
 		$scope.tasks = $firebaseArray( authFactory.currentUserTasks );
 
@@ -9,6 +9,8 @@ angular.module( 'interoApp' )
 			$scope.title = str;
 			$scope.showTasks = bolean;
 		}
+
+		$scope.filters = {};
 
 		$scope.showTasks = true;
 

@@ -3,10 +3,6 @@ angular.module( 'interoApp' )
 .directive( 'viewTasks', function(tasksFactory) {
 	return {
 		templateUrl: './directives/view-tasks/view-tasks-dir.html',
-		scope: {
-			tasks: '=',
-			filter: '='
-		},
 		link: function (scope, elem, attr) {
 			scope.done = function (task, bolean){
 				tasksFactory.taskDone(task, bolean);
@@ -19,7 +15,6 @@ angular.module( 'interoApp' )
 				} );
 				$( '.modal-trigger' ).leanModal();
 			} );
-			
 		}
 	};
 } );

@@ -23,13 +23,10 @@ angular.module( 'interoApp' )
 		for ( var i = 0; i < tasks.length; i++ ) {
 			if ( tasks[i].$id === task.$id ) {
 				var thisTask = new Firebase(authFactory.currentUserTasks + '/' + task.$id);
-				console.log(thisTask);
 				thisTask.update( {completed: bolean });
 			}
 		}
 	}
-
-
 
 	return {
 		addTask: addTask,

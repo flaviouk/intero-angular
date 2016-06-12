@@ -1,7 +1,7 @@
 <ul class="collapsible popout" data-collapsible="accordion">
-    <li ng-repeat="task in tasks | filter: filter" ng-if="!task.completed">
+    <li ng-repeat="task in tasks | filter: filters">
         <div class="collapsible-header">
-            <div class="left" >
+            <div class="left">
                 <i class="fa fa-check-square-o" aria-hidden="true"></i>{{task.name}}
             </div>
             <div class="right">
@@ -9,16 +9,22 @@
             </div>
         </div>
         <div class="collapsible-body">
-            <p><strong>Description: </strong>{{task.description}}
-                {{task}}</p>
-            <p>
-                <strong>Created:</strong> {{task.created}}
-                <br>
-                <strong>Due:</strong> {{task.due}}
-            </p>
-            <button ng-click="done(task, true)">DONE</button>
-            <div class="right" >
-                <i class="fa fa-check done-check" aria-hidden="true" ></i>
+            <div class="row">
+                <div class="col s8">
+                    <p><strong>Description: </strong>{{task.description}}</p>
+                    <p>
+                        <strong>Created:</strong> {{task.created}}
+                        <br>
+                        <strong>Due:</strong> {{task.due}}
+                    </p>
+                    <a ng-if="!task.completed" id="done-btn" ng-click="done(task, true)"><i class="fa fa-check done-check" aria-hidden="true" ></i> Done</a>
+                    <a ng-if="task.completed" id="done-btn" ng-click="done(task, false)"><i class="fa fa-undo" aria-hidden="true" ></i> Undo</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col s4">
+                    <pomodoro ng-if="!task.completed"></pomodoro>
+                </div>
             </div>
 
         </div>

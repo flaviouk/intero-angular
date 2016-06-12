@@ -41,14 +41,10 @@ angular.module( 'interoApp' )
 	function checkAuth() {
 		firebaseRef.base.onAuth( function( authData ) {
 			if ( authData ) {
-				console.log( 'Authenticated with: ', authData );
 				currentUser = authData;
 				currentUserTasks = new Firebase(firebaseRef.tasks + '/' + currentUser.uid);
 				$state.go('dashboard');
 			} else {
-				$timeout( function() {
-					Materialize.toast( 'You are not logged in!', 3000 );
-				}, 500 );
 				$state.go( 'home' );
 			}
 		} )

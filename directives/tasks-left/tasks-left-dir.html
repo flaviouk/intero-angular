@@ -2,16 +2,13 @@
     <button type="button" ng-click="view('New Task', false)" class="list-group-item">
         <i class="fa fa-plus" aria-hidden="true"></i> New
     </button>
-    <button type="button" ng-click="view('Today', true)" class="list-group-item">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Today
+    <button type="button" ng-click="view('Active Tasks', true); setFilter({completed: false});" class="list-group-item">
+        <i class="fa fa-check-square" aria-hidden="true"></i> Active
     </button>
-    <button type="button" ng-click="view('Week', true)" class="list-group-item">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Week
+    <button type="button" ng-click="view('Tasks Completed', true); setFilter({completed: true});" class="list-group-item">
+        <i class="fa fa-check-square" aria-hidden="true"></i> Completed
     </button>
-    <button type="button" ng-click="view('Done', true)" class="list-group-item">
-        <i class="fa fa-check-square" ng-model="filter.completed" aria-hidden="true"></i> Done
-    </button>
-    <button type="button" ng-click="view('All Tasks', true)" class="list-group-item">
+    <button type="button" ng-click="view('All Tasks', true); setFilter({});" class="list-group-item">
         <i class="fa fa-check-square" aria-hidden="true"></i> All
     </button>
 </div>
