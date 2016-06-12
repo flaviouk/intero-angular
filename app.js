@@ -19,11 +19,6 @@ angular.module( 'interoApp', [ 'ui.router', 'firebase' ] )
 			templateUrl: './views/home/home.html',
 			controller: 'homeCtrl'
 		} )
-		.state( 'dashboard', {
-			url: '/dashboard',
-			templateUrl: './views/dashboard/dashboard.html',
-			controller: 'dashboardCtrl'
-		} )
 		.state( 'tasks', {
 			url: '/tasks',
 			templateUrl: './views/tasks/tasks.html',

@@ -22,7 +22,7 @@ angular.module( 'interoApp' )
 				$timeout( function() {
 					Materialize.toast( 'Welcome to intero, ' + authData.facebook.displayName + '!', 3000 );
 				}, 500 );
-				$state.go( 'dashboard' );
+				$state.go( 'tasks' );
 
 			}
 		} )
@@ -43,7 +43,7 @@ angular.module( 'interoApp' )
 			if ( authData ) {
 				currentUser = authData;
 				currentUserTasks = new Firebase(firebaseRef.tasks + '/' + currentUser.uid);
-				$state.go('dashboard');
+				$state.go('tasks');
 			} else {
 				$state.go( 'home' );
 			}
